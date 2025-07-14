@@ -1,21 +1,7 @@
-Boa tarde! Com certeza, posso te ajudar a montar um roteiro de apresentação sobre Markdown para seus colegas juniores. A ideia é ser prático, claro e mostrar como o Markdown pode facilitar o dia a dia deles.
-
----
-
-## Roteiro de Apresentação: Desvendando o Markdown
-
-Olá a todos! Meu nome é [Seu Nome] e hoje vamos desvendar uma ferramenta super útil que vai simplificar a forma como escrevemos e formatamos textos: o **Markdown**.
-
----
-
 ### **1. O que é Markdown?**
 
-- **Definição simples:** É uma linguagem de marcação leve que permite formatar texto usando símbolos simples do teclado.
-    
-- **Para que serve?** Criar documentos formatados de forma rápida e fácil, sem precisar de editores complexos ou conhecimento de HTML.
-    
-- **Origem:** Criado por John Gruber e Aaron Swartz em 2004.
-    
+É uma linguagem de marcação leve que permite formatar texto usando símbolos simples do teclado.
+
 - **Onde é usado?**
     
     - Arquivos README (em projetos de programação)
@@ -27,30 +13,6 @@ Olá a todos! Meu nome é [Seu Nome] e hoje vamos desvendar uma ferramenta super
     - Anotações rápidas
         
     - Comunicação em plataformas como GitHub, GitLab, Slack, Discord, entre outras.
-        
-
----
-
-### **2. Por que usar Markdown? (Vantagens)**
-
-- **Simplicidade:** Fácil de aprender e usar.
-    
-- **Rapidez:** Formate textos sem tirar as mãos do teclado.
-    
-- **Portabilidade:** Arquivos `.md` são leves e podem ser abertos em qualquer editor de texto.
-    
-- **Consistência:** Garante uma formatação uniforme em diferentes plataformas.
-    
-- **Foco no conteúdo:** Você se preocupa em escrever, não em formatar.
-    
-- **Interoperabilidade:** Facilmente convertido para HTML, PDF, etc.
-    
-
----
-
-### **3. Sintaxe Básica do Markdown (Mão na Massa!)**
-
-Vamos ver os comandos mais comuns e como eles ficam na prática. _Sugiro abrir um editor de texto com suporte a Markdown (como VS Code, Typora, Obsidian ou até mesmo um editor online) e ir digitando os exemplos junto com eles._
 
 - **Títulos (Headers):** Use `#` para diferentes níveis de títulos.
     
@@ -220,43 +182,8 @@ Vamos ver os comandos mais comuns e como eles ficam na prática. _Sugiro abrir u
 
 ---
 
-### **5. Dicas para o dia a dia**
+![md1](imgs/md1.jpg)
 
-- Comecem a usar Markdown para anotações rápidas.
-    
-- Experimentem criar arquivos `README.md` para seus projetos.
-    
-- Quando precisarem compartilhar snippets de código ou logs, usem blocos de código.
-    
-- Sempre que possível, prefiram Markdown para documentação interna.
-    
+![md2](imgs/md2.png)
 
----
-
-### **6. Perguntas e Respostas**
-
-- Abra para dúvidas e comentários.
-    
-- Incentive-os a começar a praticar.
-    
-
----
-
-**Muito obrigado pela atenção!** Tenho certeza que o Markdown vai ser um grande aliado no trabalho de vocês.
-
----
-
-### **Sugestões para a sua apresentação:**
-
-- **Pratique:** Familiarize-se com a sintaxe para demonstrar sem hesitação.
-    
-- **Demonstração ao vivo:** O ideal é abrir um editor de Markdown e mostrar a sintaxe sendo aplicada em tempo real. Digite os exemplos e mostre o resultado na pré-visualização.
-    
-- **Interatividade:** Peça para eles tentarem alguns comandos simples durante a apresentação.
-    
-- **Material de apoio:** Prepare um pequeno "cheat sheet" com os comandos básicos para eles levarem.
-    
-- **Exemplos reais:** Se possível, mostre um `README.md` de um projeto de vocês ou um documento real que usou Markdown.
-    
-
-Com este roteiro, sua apresentação será clara, didática e muito útil para seus colegas juniores! Boa sorte!
+![md3](imgs/md3.jpg)

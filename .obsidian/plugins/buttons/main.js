@@ -1050,6 +1050,9 @@ var insertButton = (app, outputObject) => {
   outputObject.class && buttonArr.push(`class ${outputObject.class}`);
   outputObject.folder && buttonArr.push(`folder ${outputObject.folder}`);
   outputObject.folder && buttonArr.push(`prompt ${outputObject.prompt}`);
+  if (outputObject.actions && Array.isArray(outputObject.actions) && outputObject.actions.length > 0) {
+    buttonArr.push(`actions ${JSON.stringify(outputObject.actions)}`);
+  }
   buttonArr.push("```");
   outputObject.blockId ? buttonArr.push(`^button-${outputObject.blockId}`) : buttonArr.push(`^button-${nanoid(4)}`);
   const page = app.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
@@ -1062,12 +1065,88 @@ var insertInlineButton = (app, id) => {
   const editor = page.editor;
   editor.replaceSelection(`\`button-${id}\``);
 };
-var createArgumentObject = (source) => source.split("\n").reduce((acc, i) => {
-  const split = i.split(" ");
-  const key = split[0].toLowerCase();
-  acc[key] = split.filter((item) => item !== split[0]).join(" ").trim();
+var createArgumentObject = (source) => {
+  const lines = source.split("\n");
+  const acc = {};
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const split = line.split(" ");
+    const key = split[0]?.toLowerCase();
+    if (!key)
+      continue;
+    if (key === "actions") {
+      const jsonLines = [line.replace(/^actions\s*/, "")];
+      let bracketCount = 0;
+      let braceCount = 0;
+      let inString = false;
+      let escaped = false;
+      for (const char of jsonLines[0]) {
+        if (escaped) {
+          escaped = false;
+          continue;
+        }
+        if (char === "\\") {
+          escaped = true;
+          continue;
+        }
+        if (char === '"' && !escaped) {
+          inString = !inString;
+          continue;
+        }
+        if (!inString) {
+          if (char === "[")
+            bracketCount++;
+          else if (char === "]")
+            bracketCount--;
+          else if (char === "{")
+            braceCount++;
+          else if (char === "}")
+            braceCount--;
+        }
+      }
+      while ((bracketCount > 0 || braceCount > 0) && i + 1 < lines.length) {
+        i++;
+        const nextLine = lines[i];
+        jsonLines.push(nextLine);
+        for (const char of nextLine) {
+          if (escaped) {
+            escaped = false;
+            continue;
+          }
+          if (char === "\\") {
+            escaped = true;
+            continue;
+          }
+          if (char === '"' && !escaped) {
+            inString = !inString;
+            continue;
+          }
+          if (!inString) {
+            if (char === "[")
+              bracketCount++;
+            else if (char === "]")
+              bracketCount--;
+            else if (char === "{")
+              braceCount++;
+            else if (char === "}")
+              braceCount--;
+          }
+        }
+      }
+      const jsonString = jsonLines.join("\n").trim();
+      try {
+        acc[key] = JSON.parse(jsonString);
+      } catch (e) {
+        new import_obsidian.Notice("Error: Malformed JSON in actions field. Please check your chain button syntax.", 4e3);
+        acc[key] = [];
+      }
+    } else {
+      const value = split.slice(1).join(" ").trim();
+      acc[key] = value;
+    }
+  }
   return acc;
-}, {});
+};
 var createContentArray = async (app) => {
   const activeView = app.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
   if (activeView) {
@@ -1282,12 +1361,13 @@ var prependContent = async (app, insert, lineStart, isTemplater) => {
     } else {
       if (isTemplater) {
         const runTemplater = await templater_default(app, insert, file);
-        const content2 = await app.vault.read(insert);
-        const processed = await runTemplater(content2);
+        const templateContent = await app.vault.read(insert);
+        const processed = await runTemplater(templateContent);
         contentArray.splice(lineStart, 0, `${processed}`);
       } else {
         activeView.editor.setCursor(lineStart);
         await app.internalPlugins?.plugins["templates"].instance.insertTemplate(insert);
+        return;
       }
     }
     content = contentArray.join("\n");
@@ -1309,8 +1389,7 @@ var appendContent = async (app, insert, lineEnd, isTemplater) => {
       insertionPoint = lineEnd + 1;
     }
     if (typeof insert === "string") {
-      contentArray.splice(insertionPoint, 0, `
-${insert}`);
+      contentArray.splice(insertionPoint, 0, `${insert}`);
     } else {
       if (isTemplater) {
         const runTemplater = await templater_default(app, insert, file);
@@ -1320,6 +1399,7 @@ ${insert}`);
       } else {
         activeView.editor.setCursor(insertionPoint);
         await app.internalPlugins?.plugins["templates"].instance.insertTemplate(insert);
+        return;
       }
     }
     content = contentArray.join("\n");
@@ -1348,6 +1428,7 @@ var addContentAtLine = async (app, insert, type, isTemplater) => {
         } else {
           activeView.editor.setCursor(insertionPoint);
           await app.internalPlugins?.plugins["templates"].instance.insertTemplate(insert);
+          return;
         }
       }
       content = contentArray.join("\n");
@@ -1689,6 +1770,44 @@ var templater2 = async (app, position) => {
     return args;
   }
 };
+var chain = async (app, args, position, inline, id, file) => {
+  if (!Array.isArray(args.actions)) {
+    new import_obsidian5.Notice("No actions array found for chain button.");
+    return;
+  }
+  for (const actionObj of args.actions) {
+    try {
+      const actionArgs = { ...args, ...actionObj };
+      let currentPosition = position;
+      if (actionArgs.type && (actionArgs.type.includes("text") || actionArgs.type.includes("template"))) {
+        if (file) {
+          const content = await app.vault.read(file);
+          currentPosition = inline && id ? await getInlineButtonPosition(app, id) : getButtonPosition(content, actionArgs);
+        }
+      }
+      if (actionArgs.type && actionArgs.type.includes("command")) {
+        command(app, actionArgs, currentPosition);
+      } else if (actionArgs.type === "copy") {
+        copy(actionArgs);
+      } else if (actionArgs.type === "link") {
+        link(actionArgs);
+      } else if (actionArgs.type && actionArgs.type.includes("template")) {
+        await template(app, actionArgs, currentPosition);
+      } else if (actionArgs.type === "calculate") {
+        await calculate(app, actionArgs, currentPosition);
+      } else if (actionArgs.type && actionArgs.type.includes("text")) {
+        await text(app, actionArgs, currentPosition);
+      } else if (actionArgs.type === "chain") {
+        await chain(app, actionArgs, currentPosition, inline, id, file);
+      } else {
+        new import_obsidian5.Notice(`Unsupported action type in chain: ${actionArgs.type}`);
+      }
+    } catch (e) {
+      console.error("Error executing chain action:", actionObj, e);
+      new import_obsidian5.Notice(`Error executing chain action: ${actionObj.type}`);
+    }
+  }
+};
 
 // src/button.ts
 var createButton = ({
@@ -1775,6 +1894,10 @@ var clickHandler = async (app, args, inline, id) => {
     content = await app.vault.read(activeFile);
     position = inline ? await getInlineButtonPosition(app, id) : getButtonPosition(content, args);
     await remove(app, args, position);
+  }
+  if (args.type === "chain") {
+    await chain(app, args, position, inline, id, activeFile);
+    return;
   }
 };
 
@@ -3521,7 +3644,8 @@ var ButtonModal = class extends import_obsidian8.Modal {
       customTextColor: "",
       blockId: "",
       folder: "",
-      prompt: false
+      prompt: false,
+      actions: []
     });
     this.commandSuggest = new CommandSuggest(this.app, this.commandSuggestEl);
     this.commandSuggestEl.placeholder = "Toggle Pin";
@@ -3593,9 +3717,82 @@ var ButtonModal = class extends import_obsidian8.Modal {
         drop.addOption("calculate", "Calculate - run a mathematical calculation");
         drop.addOption("swap", "Swap - Create a multi-purpose Inline Button from other Buttons");
         drop.addOption("copy", "Text - Copy text to clipboard");
+        drop.addOption("chain", "Chain - Run multiple actions in sequence");
         const action = formEl.createEl("div");
         drop.onChange((value) => {
           this.outputObject.type = value;
+          if (value === "chain") {
+            action.empty();
+            if (!Array.isArray(this.outputObject.actions)) {
+              this.outputObject.actions = [];
+            }
+            const actionsList = action.createEl("div", { cls: "chain-actions-list" });
+            actionsList.setAttribute("style", "margin-top: 10px;");
+            const actionsTitle = actionsList.createEl("h4", { text: "Chain Actions" });
+            actionsTitle.setAttribute("style", "margin: 0 0 10px 0; color: var(--text-normal);");
+            const actionsDesc = actionsTitle.createEl("div", { text: "Add actions to be executed in sequence" });
+            actionsDesc.setAttribute("style", "font-size: 12px; color: var(--text-muted); font-weight: normal;");
+            const renderActions = () => {
+              actionsList.empty();
+              actionsList.appendChild(actionsTitle);
+              this.outputObject.actions.forEach((act, idx) => {
+                const actionRow = actionsList.createEl("div", { cls: "chain-action-row" });
+                actionRow.setAttribute("style", "border: 1px solid var(--background-modifier-border); border-radius: 6px; padding: 12px; margin-bottom: 8px; background: var(--background-secondary);");
+                const actionHeader = actionRow.createEl("div");
+                actionHeader.setAttribute("style", "display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;");
+                const actionNumber = actionHeader.createEl("span", { text: `Action ${idx + 1}` });
+                actionNumber.setAttribute("style", "font-weight: 600; color: var(--text-normal);");
+                const typeSelect = actionRow.createEl("select");
+                typeSelect.setAttribute("style", "margin-right: 8px; flex: 1;");
+                const typeOptions = [
+                  { value: "command", text: "Command" },
+                  { value: "append text", text: "Append Text" },
+                  { value: "prepend text", text: "Prepend Text" },
+                  { value: "line text", text: "Line Text" },
+                  { value: "note text", text: "Note Text" },
+                  { value: "append template", text: "Append Template" },
+                  { value: "prepend template", text: "Prepend Template" },
+                  { value: "line template", text: "Line Template" },
+                  { value: "note template", text: "Note Template" },
+                  { value: "link", text: "Link" },
+                  { value: "calculate", text: "Calculate" },
+                  { value: "copy", text: "Copy" }
+                ];
+                typeOptions.forEach((opt) => {
+                  const option = typeSelect.createEl("option");
+                  option.value = opt.value;
+                  option.text = opt.text;
+                  if (act.type === opt.value)
+                    option.selected = true;
+                });
+                typeSelect.onchange = () => {
+                  this.outputObject.actions[idx].type = typeSelect.value;
+                  actionInputContainer.empty();
+                  this.renderActionInput(actionInputContainer, idx, typeSelect.value);
+                };
+                const actionInputContainer = actionRow.createEl("div", { cls: "action-input-container" });
+                actionInputContainer.setAttribute("style", "margin-top: 8px;");
+                this.renderActionInput(actionInputContainer, idx, act.type);
+                const removeBtn = actionRow.createEl("button", { type: "button" });
+                removeBtn.setAttribute("style", "background: var(--background-modifier-error); color: var(--text-on-accent); border: none; border-radius: 4px; padding: 4px 8px; font-size: 12px; cursor: pointer;");
+                removeBtn.textContent = "\xD7 Remove";
+                removeBtn.onclick = (event) => {
+                  event.preventDefault();
+                  this.outputObject.actions.splice(idx, 1);
+                  renderActions();
+                };
+              });
+            };
+            const addActionBtn = action.createEl("button", { type: "button" });
+            addActionBtn.setAttribute("style", "background: var(--interactive-accent); color: var(--text-on-accent); border: none; border-radius: 6px; padding: 8px 16px; font-size: 14px; cursor: pointer; margin-top: 8px;");
+            addActionBtn.textContent = "+ Add Action";
+            addActionBtn.onclick = (event) => {
+              event.preventDefault();
+              this.outputObject.actions.push({ type: "command", action: "" });
+              renderActions();
+            };
+            renderActions();
+          }
           if (value === "link") {
             action.empty();
             new import_obsidian8.Setting(action).setName("Link").setDesc("Enter a link to open").addText((textEl) => {
@@ -3889,6 +4086,105 @@ var ButtonModal = class extends import_obsidian8.Modal {
       args: { name: "My Awesome Button" }
     });
   }
+  renderActionInput(container, actionIndex, actionType) {
+    if (actionType.includes("line text") || actionType.includes("line template")) {
+      new import_obsidian8.Setting(container).setName("Line Number").setDesc("At which line should this be inserted?").addText((textEl) => {
+        textEl.setPlaceholder("69");
+        textEl.onChange((value) => {
+          this.outputObject.actions[actionIndex].type = `line(${value}) ${actionType.includes("text") ? "text" : "template"}`;
+        });
+      });
+      new import_obsidian8.Setting(container).setName("Content").setDesc(actionType.includes("text") ? "Text to insert" : "Template to insert").addText((textEl) => {
+        textEl.setPlaceholder(actionType.includes("text") ? "My Text to Insert" : "My Template");
+        textEl.onChange((value) => {
+          this.outputObject.actions[actionIndex].action = value;
+        });
+      });
+    } else if (actionType.includes("note text") || actionType.includes("note template")) {
+      new import_obsidian8.Setting(container).setName("Note Name").setDesc("What should the new note be named?").addText((textEl) => {
+        textEl.setPlaceholder("My New Note");
+        textEl.onChange((value) => {
+          this.outputObject.actions[actionIndex].type = `note(${value}) ${actionType.includes("text") ? "text" : "template"}`;
+        });
+      });
+      new import_obsidian8.Setting(container).setName("Split").setDesc("Should the new note open in a split pane?").addToggle((toggleEl) => {
+        const currentType = this.outputObject.actions[actionIndex].type;
+        const noteName = currentType.match(/note\(([^)]*)\)/)?.[1] || "My New Note";
+        if (toggleEl.getValue()) {
+          this.outputObject.actions[actionIndex].type = `note(${noteName}, split) ${actionType.includes("text") ? "text" : "template"}`;
+        } else {
+          this.outputObject.actions[actionIndex].type = `note(${noteName}) ${actionType.includes("text") ? "text" : "template"}`;
+        }
+      });
+      new import_obsidian8.Setting(container).setName("Content").setDesc(actionType.includes("text") ? "Text to insert" : "Template to insert").addText((textEl) => {
+        textEl.setPlaceholder(actionType.includes("text") ? "My Text to Insert" : "My Template");
+        textEl.onChange((value) => {
+          this.outputObject.actions[actionIndex].action = value;
+        });
+      });
+    } else if (actionType === "command") {
+      const commandSuggestEl = createEl("input", { type: "text" });
+      new CommandSuggest(this.app, commandSuggestEl);
+      commandSuggestEl.placeholder = "Toggle Pin";
+      commandSuggestEl.addEventListener("change", (e) => {
+        this.outputObject.actions[actionIndex].action = e.target.value;
+      });
+      commandSuggestEl.addEventListener("blur", (e) => {
+        this.outputObject.actions[actionIndex].action = e.target.value;
+      });
+      new import_obsidian8.Setting(container).setName("Command").setDesc("Enter a command to run").addDropdown((drop) => {
+        drop.addOption("command", "Default");
+        drop.addOption("prepend command", "Prepend");
+        drop.addOption("append command", "Append");
+        drop.onChange((value) => {
+          this.outputObject.actions[actionIndex].type = value;
+        });
+      }).addText((textEl) => {
+        textEl.inputEl.replaceWith(commandSuggestEl);
+      });
+    } else if (actionType.includes("template")) {
+      const fileSuggestEl = createEl("input", { type: "text" });
+      new TemplateSuggest(this.app, fileSuggestEl);
+      fileSuggestEl.placeholder = "My Template";
+      fileSuggestEl.addEventListener("change", (e) => {
+        this.outputObject.actions[actionIndex].action = e.target.value;
+      });
+      fileSuggestEl.addEventListener("blur", (e) => {
+        this.outputObject.actions[actionIndex].action = e.target.value;
+      });
+      new import_obsidian8.Setting(container).setName("Template").setDesc("Select a template").addText((textEl) => {
+        textEl.inputEl.replaceWith(fileSuggestEl);
+      });
+    } else if (actionType === "link") {
+      new import_obsidian8.Setting(container).setName("Link").setDesc("Enter a link to open").addText((textEl) => {
+        textEl.setPlaceholder("https://obsidian.md");
+        textEl.onChange((value) => {
+          this.outputObject.actions[actionIndex].action = value;
+        });
+      });
+    } else if (actionType === "calculate") {
+      new import_obsidian8.Setting(container).setName("Calculate").setDesc("Enter a calculation, you can reference a line number with $LineNumber").addText((textEl) => {
+        textEl.setPlaceholder("2+$10");
+        textEl.onChange((value) => {
+          this.outputObject.actions[actionIndex].action = value;
+        });
+      });
+    } else if (actionType === "copy") {
+      new import_obsidian8.Setting(container).setName("Text").setDesc("Text to copy for clipboard").addText((textEl) => {
+        textEl.setPlaceholder("Text to copy");
+        textEl.onChange((value) => {
+          this.outputObject.actions[actionIndex].action = value;
+        });
+      });
+    } else {
+      new import_obsidian8.Setting(container).setName("Text").setDesc("Text to insert").addText((textEl) => {
+        textEl.setPlaceholder("My Text to Insert");
+        textEl.onChange((value) => {
+          this.outputObject.actions[actionIndex].action = value;
+        });
+      });
+    }
+  }
   onClose() {
     const { contentEl } = this;
     contentEl.empty();
@@ -4074,6 +4370,10 @@ var ButtonWidget = class extends import_view.WidgetType {
     if (args.remove) {
       position = await getInlineButtonPosition(this.app, this.id);
       await remove(this.app, args, position);
+    }
+    if (args.type === "chain") {
+      await chain(this.app, args, position, true, this.id, activeFile);
+      return;
     }
   }
 };

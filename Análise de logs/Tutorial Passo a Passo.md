@@ -1,8 +1,3 @@
----
-
-Ah, sim! A respiração é merecida depois de tanta informação valiosa! E para selar essa jornada, nada melhor do que um **tutorial passo a passo** conciso para colocar esse ambiente de monitoramento de logs em pé. A ideia é que você tenha um guia prático para uma implementação **rápida, confiável e robusta**, pronta para o próximo evento inesperado.
-
----
 
 ### Tutorial Passo a Passo: Implementação Rápida de um Ambiente ELK/OpenSearch para Logs de Conexão
 

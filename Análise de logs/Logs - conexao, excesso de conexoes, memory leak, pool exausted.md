@@ -1,5 +1,3 @@
-
-
 ---
 
 ### Eventos de Conexão e Seus Sintomas em Logs
@@ -19,7 +17,7 @@ Aqui estão os tipos de eventos e sintomas que você deve procurar e como eles s
             - `Timeout acquiring connection`: A aplicação tentou obter uma conexão do pool, mas o tempo limite expirou.
                 
             - `Failed to get connection from pool`: Erro genérico na obtenção da conexão.
-                
+                  
             - `SQLException` ou exceções específicas do driver (ex: `java.sql.SQLException: No suitable driver found for...` - menos comum para leak, mas pode indicar falha na inicialização do driver).
                 
             - Mensagens de `DEBUG` ou `INFO` mostrando **abertura de conexões** sem as correspondentes mensagens de **fechamento/liberação** para o mesmo ID de conexão/thread.

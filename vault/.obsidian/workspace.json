@@ -1,0 +1,233 @@
+{
+  "main": {
+    "id": "e35c1d0e773e24da",
+    "type": "split",
+    "children": [
+      {
+        "id": "ab759dc72b2dba85",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ce082e9509a3a6de",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "WSL - SOFT/scripts/Arch - Plasma + Node.js + Fish + Fisher + Obsidian + Chaotic AUR + Yay + VS Code + Cursor.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Arch - Plasma + Node.js + Fish + Fisher + Obsidian + Chaotic AUR + Yay + VS Code + Cursor"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e452a9c5344eb412",
+    "type": "split",
+    "children": [
+      {
+        "id": "cd12656459dd67d0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "17d5de27e7bda41b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "d1dfed90473ef7f8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e6def868d7e186c5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 255.5
+  },
+  "right": {
+    "id": "e4e0873ec08d039e",
+    "type": "split",
+    "children": [
+      {
+        "id": "33bc050e51f955d0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "45e2bc0fb96aeaa3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Unimed/Servidores.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Servidores"
+            }
+          },
+          {
+            "id": "6cb194bf12a5c42f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Unimed/Servidores.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Servidores"
+            }
+          },
+          {
+            "id": "0bd92eef069ab004",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "1bac38d7156187d4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Unimed/Servidores.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Servidores"
+            }
+          },
+          {
+            "id": "7474eb0f0d5bf173",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "markdown-importer:Abrir importador Markdown": false,
+      "open-vscode:VSCode": false,
+      "obsidian-git:Open Git source control": false,
+      "project-browser:Open project browser": false
+    }
+  },
+  "active": "ce082e9509a3a6de",
+  "lastOpenFiles": [
+    "WSL - SOFT/scripts/Auto install Arch Plasma.md",
+    "WSL - SOFT/Fedora - code.md",
+    "WSL - SOFT/scripts/Ubuntu (XFCE4-GNOME-KDE Plasma), Node.js, Fish, Fisher, Obsidian, VS Code e Cursor.md",
+    "WSL - SOFT/scripts/Fedora Gnome + Node.js + Fish + Fisher + Obsidian + Chaotic AUR + Yay + VS Code + Cursor.md",
+    "WSL - SOFT/scripts/Arch - Plasma + Node.js + Fish + Fisher + Obsidian + Chaotic AUR + Yay + VS Code + Cursor.md",
+    "2025-07-26.md",
+    "WSL - SOFT/scripts/Auto install fedora Gnome.md",
+    "WSL - SOFT/scripts/Permissão execução powershell.md",
+    "WSL - SOFT/scripts/setup arch - basico.md",
+    "WSL - SOFT/scripts/Auto install Ubuntu - NO GUI.md",
+    "WSL - SOFT/scripts/Generic.md",
+    "WSL - SOFT/scripts/GUI.md",
+    "VSCode/Extensões.md",
+    "VSCode",
+    "WSL - SOFT/scripts",
+    "Sem título.md",
+    "Cancelled.md",
+    "Análise de logs/Ambiente - configs.md",
+    "2025-07-25.md",
+    "Unimed/Servidores.md",
+    "Markdown/automation/mkdocs - material - tutorial.md",
+    "Análise de logs/Tutorial Passo a Passo.md",
+    "Welcome.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "Node.md",
+    "Logstash - instalação.md",
+    "logstack - instalação.md",
+    "Logstack - Configuração.md",
+    "Kibana - instalação - configuração.md",
+    "Markdown/automation",
+    "Untitled 2.canvas",
+    "Markdown/Markdown - Final_tmp.html",
+    "Markdown/imgs/Capturar11.PNG",
+    "Markdown/imgs/Capturar10.PNG",
+    "Markdown/imgs/Capturar9.PNG",
+    "Markdown/imgs/Capturar8.PNG",
+    "Markdown/imgs/Capturar7.PNG",
+    "Markdown/imgs/Capturar6.PNG",
+    "Markdown/imgs/Capturar5.PNG",
+    "Markdown/imgs/Capturar4.PNG",
+    "Markdown/imgs/Capturar3.PNG",
+    "Markdown/imgs/Capturar2.PNG",
+    "Markdown",
+    "Unimed"
+  ]
+}

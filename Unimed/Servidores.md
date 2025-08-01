@@ -1,3 +1,6 @@
+---
+state: "[[Info]]"
+---
 # Servidores
 
 |  #  |      IP      | User |   Pass    |     Path     |           Pro           | HML | Dev |     |     |

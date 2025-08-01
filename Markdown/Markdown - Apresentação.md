@@ -1,3 +1,6 @@
+---
+state: "[[Pronto]]"
+---
 ### Abertura
 
 - "Quantos de vocês já escreveram documentação e ficaram perdidos com formatação HTML?"

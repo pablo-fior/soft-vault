@@ -1,3 +1,6 @@
+---
+state: "[[Pronto]]"
+---
 # Roteiro de Apresentação: Linguagem de Marcação Markdown
 
 _Duração: 40 minutos | Apresentação para colegas_

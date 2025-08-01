@@ -1,3 +1,6 @@
+---
+state: "[[Pronto]]"
+---
 # **1. O que é Markdown?**
 
 É uma linguagem de marcação leve que permite formatar texto usando símbolos simples do teclado.
@@ -29,8 +32,8 @@
 
     Resultado:
 
-    ![Captura](imgs/Capturar.png)
-    ![Captura](imgs/Capturar2.png)
+    ![Captura](Capturar.PNG)
+    ![Captura](Capturar2.PNG)
 
 ---
 
@@ -69,7 +72,7 @@
         * Subitem 2.2
     ```
 
-    ![img3](imgs/Capturar3.png)
+    ![img3](Capturar3.PNG)
 
   - **Ordenadas (Numeradas):** Use números seguidos de um ponto.
 
@@ -81,7 +84,7 @@
     3. Terceiro item
     ```
 
-    ![img3](imgs/Capturar3.png)
+    ![img3](Capturar3.PNG)
 
 ---
 
@@ -96,9 +99,9 @@
     [Visite o Google](https://www.google.com)
     Markdown:
 
-    ![img8](imgs/Capturar7.png)
+    ![img8](Capturar7.PNG)
 
-    ![img5](imgs/Capturar5.png)
+    ![img5](Capturar5.PNG)
 
 ---
 
@@ -116,9 +119,9 @@
 
     Markdown:
 
-    ![img5](imgs/Capturar8.png)
+    ![img5](Capturar8.PNG)
 
-    ![img6](imgs/Capturar6.png)
+    ![img6](Capturar6.PNG)
 
 ---
 
@@ -140,7 +143,7 @@
 
     Markdown:
 
-    ![img6](imgs/Capturar9.png)
+    ![img6](Capturar9.PNG)
 
 ---
 
@@ -210,7 +213,7 @@
 
     [^1]: Especialmente em projetos colaborativos.  
 
-    ![img6](imgs/Capturar10.png)
+    ![img6](Capturar10.PNG)
 
 ---
 
@@ -222,7 +225,7 @@
 
     Parabéns pelo trabalho! :tada: :rocket:
 
-    ![img6](imgs/Capturar11.png)
+    ![img6](Capturar11.PNG)
 
 ---
 
@@ -244,8 +247,8 @@
 
 ---
 
-![md1](imgs/md1.jpg)
+![md1](md1.jpg)
 
-![md2](imgs/md2.png)
+![md2](md2.png)
 
-![md3](imgs/md3.jpg)
+![md3](md3.jpg)

@@ -1,3 +1,6 @@
+---
+state: "[[Rascunhos]]"
+---
 # Análise Comparativa de Custo Computacional: Consulta SQL Complexa vs. Agendamento de Timers em Node.js em Servidores Próprios
 
 ## 1. Introdução

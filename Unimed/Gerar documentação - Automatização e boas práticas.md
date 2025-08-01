@@ -1,3 +1,6 @@
+---
+state: "[[Rascunhos]]"
+---
 Bom dia! Sim, podemos continuar. Parece que paramos na parte em que eu estava explicando ferramentas e técnicas para automatizar e enriquecer a documentação de projetos diretamente no **Visual Studio Code (VS Code)**, durante o desenvolvimento.
 
 ---

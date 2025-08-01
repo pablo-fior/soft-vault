@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markdown - Final.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+<link rel="stylesheet" href="file:///home/pablo/.config/code-md-css/markdown-style.css" type="text/css">
+<style>
+/* a11y-dark theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5ab35;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #abe338;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #00e0e0;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #dcc6e0;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///home/pablo/.config/code-md-css/markdown-style.css" type="text/css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h3 id="1-o-que-%C3%A9-markdown"><strong>1. O que é Markdown?</strong></h3>
+<p>É uma linguagem de marcação leve que permite formatar texto usando símbolos simples do teclado.</p>
+<ul>
+<li>
+<p><strong>Onde é usado?</strong></p>
+<ul>
+<li>
+<p>Arquivos README (em projetos de programação)</p>
+</li>
+<li>
+<p>Documentação de software</p>
+</li>
+<li>
+<p>Blogs e sites (para escrever posts)</p>
+</li>
+<li>
+<p>Anotações rápidas</p>
+</li>
+<li>
+<p>Comunicação em plataformas como GitHub, GitLab, Slack, Discord, entre outras.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Títulos (Headers):</strong> Use <code>#</code> para diferentes níveis de títulos.</p>
+<p>Markdown</p>
+<pre class="hljs"><code><div># Título Nível 1
+## Título Nível 2
+### Título Nível 3
+#### Título Nível 4
+##### Título Nível 5
+###### Título Nível 6
+</div></code></pre>
+</li>
+<li>
+<p><strong>Parágrafos:</strong> Apenas digite o texto. Uma linha em branco separa parágrafos.</p>
+</li>
+<li>
+<p><strong>Ênfase (Negrito e Itálico):</strong></p>
+<ul>
+<li>
+<p>Negrito: <code>**texto em negrito**</code> ou <code>__texto em negrito__</code></p>
+</li>
+<li>
+<p>Itálico: <code>*texto em itálico*</code> ou <code>_texto em itálico_</code></p>
+</li>
+<li>
+<p>Negrito e Itálico: <code>***texto em negrito e itálico***</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Listas:</strong></p>
+<ul>
+<li>
+<p><strong>Não Ordenadas (Bullet Points):</strong> Use <code>*</code>, <code>-</code> ou <code>+</code>.</p>
+<p>Markdown</p>
+<pre class="hljs"><code><div>* Item 1
+* Item 2
+    * Subitem 2.1
+    * Subitem 2.2
+</div></code></pre>
+</li>
+<li>
+<p><strong>Ordenadas (Numeradas):</strong> Use números seguidos de um ponto.</p>
+<p>Markdown</p>
+<pre class="hljs"><code><div>1. Primeiro item
+2. Segundo item
+3. Terceiro item
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Links:</strong> <code>[Texto do Link](URL do Link)</code></p>
+<p>Markdown</p>
+<pre class="hljs"><code><div>[Visite o Google](https://www.google.com)
+</div></code></pre>
+</li>
+<li>
+<p><strong>Imagens:</strong> <code>![Texto Alternativo](URL da Imagem)</code></p>
+<p>Markdown</p>
+<pre class="hljs"><code><div>![Logo do Markdown](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)
+</div></code></pre>
+<p><em>Obs: Para imagens locais, apenas o caminho do arquivo.</em></p>
+</li>
+<li>
+<p><strong>Blocos de Código (Code Blocks):</strong> Use três crases (``````) antes e depois do código para blocos inteiros, e uma crase (<code>`</code>) para trechos inline.</p>
+<p>Markdown</p>
+<pre class="hljs"><code><div>`print(&quot;Olá, mundo!&quot;)` é um código inline.
+
+```python
+def saudacao(nome):
+    return f&quot;Olá, {nome}!&quot;
+print(saudacao(&quot;Colegas&quot;))
+</div></code></pre>
+<pre class="hljs"><code><div>*Dica: Podem especificar a linguagem após as três crases para destaque de sintaxe.*
+
+</div></code></pre>
+</li>
+<li>
+<p><strong>Citações (Blockquotes):</strong> Use <code>&gt;</code>.</p>
+<p>Markdown</p>
+<pre class="hljs"><code><div>&gt; &quot;A simplicidade é o último grau de sofisticação.&quot;
+&gt; - Leonardo da Vinci
+</div></code></pre>
+</li>
+<li>
+<p><strong>Linha Horizontal (Thematic Breaks):</strong> Use três ou mais <code>---</code>, <code>***</code> ou <code>___</code>.</p>
+<p>Markdown</p>
+<pre class="hljs"><code><div>---
+</div></code></pre>
+</li>
+<li>
+<p><strong>Tabela</strong></p>
+<pre class="hljs"><code><div>| Nome     | Idade | Cidade     |
+|----------|-------|------------|
+| Ana      | 23    | São Paulo  |
+| Bruno    | 31    | Recife     |
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Idade</th>
+<th>Cidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana</td>
+<td>23</td>
+<td>São Paulo</td>
+</tr>
+<tr>
+<td>Bruno</td>
+<td>31</td>
+<td>Recife</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Checkbox</strong></p>
+<pre class="hljs"><code><div>- [x] Preparar apresentação
+- [ ] Revisar exemplos
+- [ ] Compartilhar material
+</div></code></pre>
+<ul>
+<li><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">Preparar apresentação</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">Revisar exemplos</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">Compartilhar material</label></li>
+</ul>
+</li>
+<li>
+<p><strong>Referências</strong></p>
+<pre class="hljs"><code><div>Markdown é muito útil para documentação.[^1]
+
+[^1]: Especialmente em projetos colaborativos.
+</div></code></pre>
+<p>Markdown é muito útil para documentação.[^1]</p>
+<p>[^1]: Especialmente em projetos colaborativos.</p>
+</li>
+<li>
+<p><strong>Emoji</strong></p>
+<pre class="hljs"><code><div>Parabéns pelo trabalho! :tada: :rocket:
+</div></code></pre>
+<p>Parabéns pelo trabalho! <img class="emoji" alt="tada" src="data:image/png;base64,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" /> <img class="emoji" alt="rocket" src="data:image/png;base64,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" /></p>
+</li>
+</ul>
+<hr>
+<h3 id="4-ferramentas-e-recursos-%C3%BAteis"><strong>4. Ferramentas e Recursos Úteis</strong></h3>
+<ul>
+<li>
+<p><strong>Editores de Texto:</strong></p>
+<ul>
+<li>
+<p><strong>VS Code:</strong> Com extensões como &quot;Markdown All in One&quot; e &quot;Markdown Preview Enhanced&quot;.</p>
+</li>
+<li>
+<p><strong>Typora:</strong> Editor focado na experiência de escrita Markdown.</p>
+</li>
+<li>
+<p><strong>Obsidian:</strong> Para gestão de notas e conhecimento, usa Markdown.</p>
+</li>
+<li>
+<p><strong>Online:</strong> Dillinger, StackEdit.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Plataformas que usam Markdown:</strong> GitHub, GitLab, Stack Overflow, Reddit, Discord, Slack.</p>
+</li>
+<li>
+<p><strong>Cheatsheets:</strong> Existem várias &quot;colas&quot; online para lembrar a sintaxe.</p>
+</li>
+</ul>
+<hr>
+<p><img src="imgs/md1.jpg" alt="md1"></p>
+<p><img src="imgs/md2.png" alt="md2"></p>
+<p><img src="imgs/md3.jpg" alt="md3"></p>
+
+</body>
+</html>

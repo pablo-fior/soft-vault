@@ -1,0 +1,18 @@
+{
+  "formatOnSave": false,
+  "formatOnSaveCurrentLine": true,
+  "baseDir": "satisfação",
+  "showNotice": false,
+  "minCharCount": 0,
+  "considerAliases": false,
+  "namespaceResolution": false,
+  "ignoreDateFormats": true,
+  "formatGitHubURLs": true,
+  "githubEnterpriseURLs": [],
+  "formatJiraURLs": true,
+  "jiraURLs": [],
+  "debug": false,
+  "ignoreCase": false,
+  "replaceUrlWithTitle": false,
+  "replaceUrlWithTitleIgnoreDomains": []
+}

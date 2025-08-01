@@ -1,0 +1,226 @@
+{
+  "main": {
+    "id": "0bdcd3c6080cbbff",
+    "type": "split",
+    "children": [
+      {
+        "id": "70f3d54c41ffa33c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e6123b33a08ebd93",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "satisfação/ge pro/Pesquisa.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Pesquisa"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e440ac38ddb66d05",
+    "type": "split",
+    "children": [
+      {
+        "id": "d2aac0025764844a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "21d51df2239e7461",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "d17c41fffb471f0e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "e9c3849a306d8e7e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f285b4b377055c29",
+    "type": "split",
+    "children": [
+      {
+        "id": "cbf783d0769dd68c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "db0df58d4262293c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "satisfação/ge pro/Pesquisa.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Links inversos para Pesquisa"
+            }
+          },
+          {
+            "id": "38ddd4230768cc7f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "satisfação/ge pro/Pesquisa.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Links de saída para Pesquisa"
+            }
+          },
+          {
+            "id": "cd88eea4bae1060d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d3a686dd920e8e93",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "satisfação/ge pro/Pesquisa.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sumário de Pesquisa"
+            }
+          },
+          {
+            "id": "c0ca4a9e5934f78f",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {},
+              "icon": "smart-connections",
+              "title": "Smart Connections"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 464.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "obisidian-note-linker:Note Linker": false,
+      "local-backup:Run local backup": false,
+      "edit-history:Open edit history": false,
+      "smart-connections:Open: Smart Chat": false,
+      "smart-connections:Open: View Smart Connections": false,
+      "project-browser:Open project browser": false
+    }
+  },
+  "active": "e6123b33a08ebd93",
+  "lastOpenFiles": [
+    "satisfação/Resumo Técnico.md",
+    "satisfação/Resumo - IA.md",
+    "satisfação/clau/scripts/PROCEDURE PARA REFRESH AUTOMATIZADO.md",
+    "Node.md",
+    "satisfação/gpt/resumo/plano de implementação.md",
+    "satisfação/gpt/resumo/Extração classificação estatística.md",
+    "satisfação/ge pro/Pesquisa.md",
+    "satisfação/ge/resumo/Resumo Técnico Insight.md",
+    "satisfação/ge/resumo/Resumo - IA Insight.md",
+    "satisfação/ge/resumo/Plano de implementação.md",
+    "satisfação/deep/resumo/Resumo Técnico Insight.md",
+    "satisfação/deep/resumo/Resumo IA Insight.md",
+    "satisfação/deep/resumo/Plano de implementação.md",
+    "satisfação/clau/scripts/TABELA DE DIMENSÕES PARA POWER BI.md",
+    "satisfação/clau/scripts/QUERIES PARA VALIDAÇÃO DE DADOS.md",
+    "satisfação/clau/scripts/MÉTRICAS CONSOLIDADAS.md",
+    "satisfação/clau/scripts/KPIs OPERACIONAIS DIÁRIOS.md",
+    "satisfação/clau/scripts/INSTRUÇÕES PARA CONEXÃO COM POWER BI.md",
+    "satisfação/clau/scripts/full.md",
+    "satisfação/clau/scripts/ANÁLISE TEMPORAL (HEATMAP).md",
+    "satisfação/clau/scripts/ANÁLISE DE INTENÇÕES.md",
+    "satisfação/clau/scripts/ANÁLISE DE FALLBACKS (TOP PROBLEMAS).md",
+    "satisfação/clau/resumo/Resumo Técnico Insight.md",
+    "satisfação/clau/resumo/Resumo IA Insight.md",
+    "satisfação/clau/resumo/Plano de implementação.md",
+    "satisfação/clau/Recomendações de implementacao/Dashboard Executivo.md",
+    "file upload/detect-file-type.md.edtz",
+    "file upload/File Type Checker.md.edtz",
+    "file upload/file-type.md.edtz",
+    "PP - Análise custo query timeout.md.edtz",
+    "satisfação/clau/scripts/full.md.edtz",
+    "satisfação/Resumo Técnico.md.edtz",
+    "satisfação/Resumo - IA.md.edtz",
+    "satisfação/gpt/full.md.edtz",
+    "satisfação/ge pro/Pesquisa.md.edtz",
+    "satisfação/ge/resumo/Resumo Técnico Insight.md.edtz"
+  ]
+}

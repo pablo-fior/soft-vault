@@ -1,3 +1,6 @@
+---
+state: "[[Pronto]]"
+---
 Boa tarde! Com certeza, posso te ajudar a montar um roteiro de apresentação sobre Markdown para seus colegas juniores. A ideia é ser prático, claro e mostrar como o Markdown pode facilitar o dia a dia deles.
 
 ---

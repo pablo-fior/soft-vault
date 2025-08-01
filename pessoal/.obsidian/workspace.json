@@ -1,0 +1,290 @@
+{
+  "main": {
+    "id": "c9a51eed7c8aa12f",
+    "type": "split",
+    "children": [
+      {
+        "id": "09a7f4e97b057096",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "db33345f030e8a14",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "primera pasta/1111.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1111"
+            }
+          },
+          {
+            "id": "11367955408d5864",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Visualização em gráfico"
+            }
+          },
+          {
+            "id": "8685ad926b2b03bf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "primera pasta/1111.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1111"
+            }
+          },
+          {
+            "id": "cd825a1ce342e4ab",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sem título 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Sem título 1"
+            }
+          },
+          {
+            "id": "a49d9ce39b1b57e6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "primera pasta/1111.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1111"
+            }
+          },
+          {
+            "id": "b00de6962571aa40",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "template/temp.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "temp"
+            }
+          },
+          {
+            "id": "89a6c2c9bdc347e7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sem título 2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Sem título 2"
+            }
+          }
+        ],
+        "currentTab": 6
+      },
+      {
+        "id": "b6e604ffcdcc10cb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bc4b4ee61aad8bfe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Bem-vindo.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Bem-vindo"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "345eca88a7745de6",
+    "type": "split",
+    "children": [
+      {
+        "id": "a4a419101d68945c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "94383e3a08af8126",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "796284dcad75facb",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "840be02597720cd5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8b406311e1b29c37",
+    "type": "split",
+    "children": [
+      {
+        "id": "59d7447648fb4adf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4a7d2c30c8264d38",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Sem título 2.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Links inversos para Sem título 2"
+            }
+          },
+          {
+            "id": "59f98c16ac1e9796",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Sem título 2.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Links de saída para Sem título 2"
+            }
+          },
+          {
+            "id": "c7be2b8f93243b5d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "2912eb9975e2ce92",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Sem título 2.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sumário de Sem título 2"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "project-browser:Open project browser": false,
+      "markdown-importer:Abrir importador Markdown": false
+    }
+  },
+  "active": "89a6c2c9bdc347e7",
+  "lastOpenFiles": [
+    "template/temp.md",
+    "Sem título 2.md",
+    "Untitled.md",
+    "template",
+    "primera pasta/1111.md",
+    "lista magic numbers.md",
+    "Sem título 1.md",
+    "segunda/Sem título.md",
+    "2025-07-27.md",
+    "Sem título.md",
+    "Bem-vindo.md",
+    "segunda",
+    "primera pasta"
+  ]
+}
